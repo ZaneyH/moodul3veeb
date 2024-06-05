@@ -1,0 +1,112 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 600px; /* Increased width for a larger gray box/item area */
+        margin: auto;
+      }
+      .carousel-img {
+        width: 100%;
+        max-height: 350px; /* Increased height for better visibility */
+        object-fit: cover;
+        border-radius: 8px;
+      }
+      .prev, .next {
+        cursor: pointer;
+        position: absolute;
+        top: 50%;
+        width: auto;
+        padding: 16px;
+        margin-top: -22px;
+        color: white;
+        font-weight: bold;
+        font-size: 18px;
+        transition: 0.6s ease;
+        border-radius: 3px;
+        user-select: none;
+      }
+      .next {
+        right: 0;
+      }
+      .prev {
+        left: 0;
+      }
+      .prev:hover, .next:hover {
+        background-color: rgba(0, 0, 0, 0.8);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-black min-h-screen text-white p-8">
+      <header class="flex justify-between items-center mb-8">
+        <div class="flex items-center">
+          <img src="Logo.png" alt="Exceptional Brawlers Logo" class="h-10"/>
+        </div>
+        <nav class="flex space-x-6">
+          <a href="index.html" class="hover:text-zinc-400">Home</a>
+          <a href="#" class="hover:text-zinc-400">Team</a>
+          <a href="Meened.html" class="hover:text-zinc-400">Shop</a>
+          <a href="Kontakt.html" class="hover:text-zinc-400">Contact us</a>
+        </nav>
+        <div class="flex space-x-6 items-center">
+          <img src="User.png" alt="Search Icon" class="h-6 w-6 cursor-pointer" />
+          <img src="Arrow.png" alt="User Icon" class="h-6 w-6 cursor-pointer" />
+        </div>
+      </header>
+      
+      <main class="flex flex-col lg:flex-row items-center lg:items-start bg-white p-8 rounded-lg shadow-lg dark:bg-zinc-800">
+        <div class="carousel-container">
+          <div class="mySlides fade">
+            <img src="Mousepad1.png" alt="Mousepad Image 1" class="carousel-img" />
+          </div>
+          <div class="mySlides fade">
+            <img src="Mousepad2.png" alt="Mousepad Image 2" class="carousel-img" />
+          </div>
+          <div class="mySlides fade">
+            <img src="Mousepad3.png" alt="Mousepad Image 3" class="carousel-img" />
+          </div>
+          <div class="mySlides fade">
+            <img src="Mousepad4.png" alt="Mousepad Image 4" class="carousel-img" />
+          </div>
+          <!-- Navigation buttons -->
+          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+        
+        <div class="text-center lg:text-left lg:ml-16 mt-8 lg:mt-0">
+          <h2 class="text-2xl font-bold text-zinc-800 dark:text-white">Brand Mousepad</h2>
+          <p class="text-xl text-zinc-500 dark:text-zinc-300 mb-4">35€</p>
+          <button class="bg-blue-500 text-white px-6 py-2 rounded-full hover:bg-blue-600 transition-colors duration-300">Buy</button>
+          <p class="text-sm text-zinc-600 dark:text-zinc-400 mt-6 leading-relaxed">
+            The Brand Mousepad is designed to provide a seamless and enhanced user experience for both gamers and professionals. Combining precision, comfort, and durability, this mousepad ensures optimal performance for all your computing needs.
+          </p>
+        </div>
+      </main>
+    </div>
+    
+    <script>
+      let slideIndex = 1;
+      showSlides(slideIndex);
+
+      function plusSlides(n) {
+        showSlides(slideIndex += n);
+      }
+
+      function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+          slides[i].style.display = "none";
+        }
+        slides[slideIndex-1].style.display = "block";
+      }
+    </script>
+  </body>
+</html>
